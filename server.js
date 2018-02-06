@@ -25,6 +25,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', apiRouter);
 app.use('/view', viewRouter);
 
-app.listen(3000, function () {
-    console.log('server started on localhost:3000');
+const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || 'http://localhost';
+
+app.listen(PORT, function () {
+    console.log(`server started on ${HOST}:${PORT}`);
 })
