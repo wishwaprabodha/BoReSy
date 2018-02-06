@@ -1,8 +1,10 @@
-// Prevent element default
-var login = function () {
+var addBoarding = function () {
     var data = {
-        email: $('#email').val(),
-        password: $('#password').val()
+        rental: $('#rental').val(),
+        capacity: $('#capacity').val(),
+        advance: $('#advance').val(),
+        address: $('#address').val(),
+        gender: $('#gender').val()
     }
 
     $.ajax({
@@ -11,16 +13,17 @@ var login = function () {
         dataType: 'json',
         success: function (response) {
             if (response.success) {
+                alert('boarding added');
                 window.location.replace('/view/portal');
             } else {
-                alert('email or password not match');
+                alert('boarding not added');
             }
         },
         error: function () {
-            alert('login failed');
+            alert('boarding not added');
         },
         processData: false,
         type: 'POST',
-        url: '/api/login'
+        url: '/api/add-boarding'
     });
 }

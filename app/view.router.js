@@ -15,4 +15,8 @@ viewRouter.get('/portal', function (req, res) {
     res.sendFile(path.join(__dirname, '..', 'public', 'portal', 'portal.html'));
 })
 
+viewRouter.get('/add-boarding', function (req, res) {
+    res.sendFile(path.join(__dirname, '..', 'public', 'add-boarding', 'add-boarding.html'));
+})
+
 module.exports = viewRouter;
