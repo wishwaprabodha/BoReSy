@@ -28,8 +28,28 @@ apiRouter.post('/signup', function (req, res) {
         req.body['password'],
         'owner',
         'M'
+        //Todo
     ], function (error, results, fields) {
         if (error) throw error;
+
+        res.status(200);
+        res.send({
+            success: true
+        })
+    });
+})
+
+
+apiRouter.post('/search-places', function (req, res) {
+    connection.query('SELECT * FROM place WHERE place=? AND gender=? AND rental BETWEEN ? AND ?', [
+        req.body['place'],
+        req.body['gender'],
+        req.body['min_rental'],
+        req.body['max_rental']
+
+    ], function (error, results, fields) {
+
+        console.log(result);
 
         res.status(200);
         res.send({
