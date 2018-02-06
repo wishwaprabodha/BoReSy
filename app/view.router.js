@@ -19,4 +19,8 @@ viewRouter.get('/add-boarding', function (req, res) {
     res.sendFile(path.join(__dirname, '..', 'public', 'add-boarding', 'add-boarding.html'));
 })
 
+viewRouter.get('/search-boarding', function (req, res) {
+    res.sendFile(path.join(__dirname, '..', 'public', 'search-boarding', 'search-boarding.html'));
+})
+
 module.exports = viewRouter;

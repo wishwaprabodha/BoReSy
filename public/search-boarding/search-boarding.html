@@ -33,11 +33,10 @@
 
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" name="place" placeholder="Place">
-                <input class="form-control mr-sm-2" name="gender" placeholder="Gender">
-                <input class="form-control mr-sm-2" name="min_rental" placeholder="Minimum Rental">
-                <input class="form-control mr-sm-2" name="min_rental" placeholder="Minimum Rental">
-                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control mr-sm-2" id="gender" placeholder="Gender">
+                <input class="form-control mr-sm-2" id="min_rental" placeholder="Minimum Rental">
+                <input class="form-control mr-sm-2" id="max_rental" placeholder="Maximum Rental">
+                <button class="btn btn-primary my-2 my-sm-0" type="button" onclick="searchBoardings()">Search</button>
             </form>
         </div>
     </nav>
@@ -64,17 +63,7 @@
                 </tr>
             </thead>
             <tbody id="displayarea">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>
-                        <a href="">Make reservation</a>
-                    </td>
-                </tr>
+                
             </tbody>
         </table>
     </div>
@@ -99,13 +88,13 @@
         </div>
     </footer>
     
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" crossorigin="anonymous"></script>
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="/search-bording/search-boarding.js"></script>
+    <script src="/search-boarding/search-boarding.js"></script>
 </body>
 
 </html>
