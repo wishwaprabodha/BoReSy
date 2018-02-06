@@ -17,14 +17,20 @@ apiRouter.post('/login', function (req, res) {
         req.body['email'],
         req.body['password']
     ], function (error, results, fields) {
+        results = JSON.parse(JSON.stringify(results));
         res.status(200);
-        if (error) {
+        if (error || !results[0]) {
             res.send({
                 success: false
             })
         } else {
+            const userid = results[0].userid;
+            req.session.userid = userid;
             res.send({
-                success: results[0] ? true : false
+                success: true,
+                data: {
+                    userId: userid
+                }
             })
         }
     });
@@ -41,7 +47,7 @@ apiRouter.post('/signup', function (req, res) {
         req.body['password'],
         req.body['type'],
         req.body['gender']
-    ], function (error, results, fields) {
+    ], function (error, result, fields) {
         res.status(200);
         if (error) {
             console.error(error);
@@ -49,15 +55,21 @@ apiRouter.post('/signup', function (req, res) {
                 success: false
             })
         } else {
+            const userid = result.insertId;
+            req.session.userid = userid;
             res.send({
-                success: true
+                success: true,
+                data: {
+                    userId: userid
+                }
             })
         }
     });
 })
 
 apiRouter.post('/add-boarding', function (req, res) {
-    connection.query('INSERT INTO place (capacity, rental, advance, address, gender) VALUES (?, ?, ?, ?, ?)', [
+    connection.query('INSERT INTO place (ownerid, capacity, rental, advance, address, gender) VALUES (?, ?, ?, ?, ?, ?)', [
+        req.session.userid,
         req.body['capacity'],
         req.body['rental'],
         req.body['advance'],
