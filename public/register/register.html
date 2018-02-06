@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/shared/main.css">
+    <title>Login Page</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-sm-center">
+            <div class="col-6">
+
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5>Sign Up</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="signupform">
+                            <div class="form-group row">
+                                <label for="fullname" class="col-sm-3 col-form-label">Full Name</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="fullname" placeholder="eg: John Doe">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="address" class="col-sm-3 col-form-label">Address</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="address" placeholder="eg: 1/2, 3rd Lane, Sample city">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="contact" class="col-sm-3 col-form-label">Contact</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="contact" placeholder="eg: 0123456789">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="nic" class="col-sm-3 col-form-label">NIC</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group mb-2">
+                                        <input type="number" class="form-control" id="nic" placeholder="941234567">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">V</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-3 col-form-label">Email</label>
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" id="email" placeholder="eg: email@sample.com">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="username" class="col-sm-3 col-form-label">Username</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="username" placeholder="eg: johndoe">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="password" class="col-sm-3 col-form-label">Password</label>
+                                <div class="col-sm-9">
+                                    <input type="password" class="form-control" id="password" placeholder="eg: 1234">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <legend class="col-form-label col-sm-3 pt-0">Type</legend>
+                                <div class="col-sm-9">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="type" id="type1" value="owner">
+                                        <label class="form-check-label" for="type1">Owner</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="type" id="type2" value="seeker">
+                                        <label class="form-check-label" for="type2">Seeker</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <legend class="col-form-label col-sm-3 pt-0">Gender</legend>
+                                <div class="col-sm-9">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender1" value="male">
+                                        <label class="form-check-label" for="gender1">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender2" value="female">
+                                        <label class="form-check-label" for="gender2">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" id="signupbtn" class="btn btn-primary w-100" onclick="signUp()">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="/register/register.js"></script>
+</body>
+
+</html>
