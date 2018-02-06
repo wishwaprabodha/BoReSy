@@ -1,6 +1,5 @@
 const express = require('express');
 var session = require('express-session');
-var fileStore = require('session-file-store')(session);
 
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -11,11 +10,10 @@ const viewRouter = require('./app/view.router');
 const app = express();
 
 app.use(session({
-    name: 'server-session-cookie-id',
-    secret: 'my express secret',
+    secret: '12345678',
+    resave: false,
     saveUninitialized: true,
-    resave: true,
-    store: new fileStore()
+    cookie: { secure: true }
 }));
 
 app.use(bodyParser.json());
@@ -30,4 +28,4 @@ const HOST = process.env.HOST || 'http://localhost';
 
 app.listen(PORT, function () {
     console.log(`server started on ${HOST}:${PORT}`);
-})
+});
