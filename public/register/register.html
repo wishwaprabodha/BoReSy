@@ -72,32 +72,19 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <legend class="col-form-label col-sm-3 pt-0">Type</legend>
+                                <label for="type" class="col-sm-3 col-form-label">Type</label>
                                 <div class="col-sm-9">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="type" id="type1" value="owner">
-                                        <label class="form-check-label" for="type1">Owner</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="type" id="type2" value="seeker">
-                                        <label class="form-check-label" for="type2">Seeker</label>
-                                    </div>
+                                    <input type="text" class="form-control" id="type" placeholder="Owner or Seeker">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <legend class="col-form-label col-sm-3 pt-0">Gender</legend>
+                                <label for="gender" class="col-sm-3 col-form-label">Gender</label>
                                 <div class="col-sm-9">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="gender1" value="male">
-                                        <label class="form-check-label" for="gender1">Male</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="gender2" value="female">
-                                        <label class="form-check-label" for="gender2">Female</label>
-                                    </div>
+                                    <input type="text" class="form-control" id="gender" placeholder="Male / Female">
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary w-100" onclick="signup()">Sign Up</button>
+
+                            <button type="button" class="btn btn-dark w-100" onclick="signup()">Sign Up</button>
                         </form>
                     </div>
                 </div>
@@ -105,6 +92,24 @@
         </div>
     </div>
     </div>
+
+    <footer class="container-fluid text-center foot" style="position:relative;bottom: 0%;padding-bottom: 5%">
+
+        <div class="copyrights">
+            <p class="white-txt">Your Site Name © 2017
+                <br><br>
+                <img class="footimg" src="https://openclipart.org/download/59293/logo-water.svg" alt="Logo">
+            </p>
+            <hr class="dark-line">
+            <a class="link" href="#">Contact Us</a>&nbsp
+            <a class="link" href="#">Privacy Policy</a>&nbsp
+            <a class="link" href="#">Terms & Conditions</a>
+            <br><br>
+            <p class="white-txt small">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare elit odio, eu imperdiet ligula ullamcorper sed.
+            </p>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
