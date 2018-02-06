@@ -6,7 +6,9 @@ var signup = function () {
         nic: $('#nic').val(),
         email: $('#email').val(),
         username: $('#username').val(),
-        password: $('#password').val()
+        password: $('#password').val(),
+        type: $('#type').val(),
+        gender: $('#gender').val()
     }
 
     $.ajax({

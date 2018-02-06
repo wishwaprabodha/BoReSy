@@ -2,10 +2,10 @@ const express = require('express');
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'boresy'
+    host: 'us-cdbr-gcp-east-01.cleardb.net',
+    user: 'ba6d76c7ff6470',
+    password: '8726bfc41272474',
+    database: 'gcp_6e68adb1572222a6dd33'
 });
 
 connection.connect();
