@@ -17,18 +17,21 @@ apiRouter.post('/login', function (req, res) {
         req.body['email'],
         req.body['password']
     ], function (error, results, fields) {
-        if (error) throw error;
-
         res.status(200);
-        res.send({
-            success: results[0] ? true : false
-        })
+        if (error) {
+            res.send({
+                success: false
+            })
+        } else {
+            res.send({
+                success: results[0] ? true : false
+            })
+        }
     });
 })
 
 apiRouter.post('/signup', function (req, res) {
-    connection.query('INSERT INTO user VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [
-        req.body['nic'],
+    connection.query('INSERT INTO user (fullname, address, contact, nic, email, username, password, type, gender) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [
         req.body['fullname'],
         req.body['address'],
         req.body['contact'],
@@ -36,21 +39,42 @@ apiRouter.post('/signup', function (req, res) {
         req.body['email'],
         req.body['username'],
         req.body['password'],
-        'owner',
-        'M'
+        req.body['type'],
+        req.body['gender']
     ], function (error, results, fields) {
+        res.status(200);
         if (error) {
             console.error(error);
-            res.status(200);
             res.send({
                 success: false
             })
+        } else {
+            res.send({
+                success: true
+            })
         }
+    });
+})
 
+apiRouter.post('/add-boarding', function (req, res) {
+    connection.query('INSERT INTO place (capacity, rental, advance, address, gender) VALUES (?, ?, ?, ?, ?)', [
+        req.body['capacity'],
+        req.body['rental'],
+        req.body['advance'],
+        req.body['address'],
+        req.body['gender']
+    ], function (error, results, fields) {
         res.status(200);
-        res.send({
-            success: true
-        })
+        if (error) {
+            console.error(error);
+            res.send({
+                success: false
+            })
+        } else {
+            res.send({
+                success: true
+            })
+        }
     });
 })
 
