@@ -1,72 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Add Borading</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="/shared/main.css">
 
 </head>
+
 <body>
-<div class="container">
-    <br><br><br>
-    <h3>Add Place</h3>
-    <br><br>
-<form>
-    <div class="form-row">
-        <div class="form-group col-md-4">
-            <label for="rental">Rental</label>
-            <input type="text" class="form-control" id="rental" placeholder="Rental">
-        </div>
-        <div class="form-group col-md-4">
-            <label for="capacity">Capacity</label>
-            <input type="password" class="form-control" id="capacity" placeholder="Capacity">
-        </div>
-        <div class="form-group col-md-4">
-            <label for="advance">Advance</label>
-            <input type="text" class="form-control" id="advance" placeholder="Advance">
-        </div>
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <h3>Add Place</h3>
+        <br>
+        <br>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="rental">Rental</label>
+                    <input type="number" class="form-control" id="rental" placeholder="Rental">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="capacity">Capacity</label>
+                    <input type="number" class="form-control" id="capacity" placeholder="Capacity">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="advance">Advance</label>
+                    <input type="number" class="form-control" id="advance" placeholder="Advance">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" placeholder="Address">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="gender">Gender</label>
+                    <input type="text" class="form-control" id="gender" placeholder="Gender">
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-dark w-100" onclick="addBoarding()">Add</button>
+        </form>
     </div>
-    <div class="form-group">
-        <label for="address">Address</label>
-        <input type="text" class="form-control" id="address" placeholder="Address">
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="gender">Gender</label>
-            <input type="text" class="form-control" id="gender" placeholder="Gender">
+
+    <footer class="container-fluid text-center foot" style="position:relative;bottom: 0%;padding-bottom: 5%">
+
+        <div class="copyrights">
+            <p class="white-txt">Your Site Name © 2017
+                <br>
+                <br>
+                <img class="footimg" src="https://openclipart.org/download/59293/logo-water.svg" alt="Logo">
+            </p>
+            <hr class="dark-line">
+            <a class="link" href="#">Contact Us</a>&nbsp
+            <a class="link" href="#">Privacy Policy</a>&nbsp
+            <a class="link" href="#">Terms & Conditions</a>
+            <br>
+            <br>
+            <p class="white-txt small">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare elit odio, eu imperdiet ligula ullamcorper sed.
+            </p>
         </div>
+    </footer>
 
-
-    </div>
-
-    <input type="button" class="btn btn-dark" onclick="addBoarding()">
-</form>
-</div>
-
-<footer class="container-fluid text-center foot" style="position:relative;bottom: 0%;padding-bottom: 5%">
-
-    <div class="copyrights">
-        <p class="white-txt">Your Site Name © 2017
-            <br><br>
-            <img class="footimg" src="https://openclipart.org/download/59293/logo-water.svg" alt="Logo">
-        </p>
-        <hr class="dark-line">
-        <a class="link" href="#">Contact Us</a>&nbsp
-        <a class="link" href="#">Privacy Policy</a>&nbsp
-        <a class="link" href="#">Terms & Conditions</a>
-        <br><br>
-        <p class="white-txt small">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare elit odio, eu imperdiet ligula ullamcorper sed.
-        </p>
-    </div>
-</footer>
-
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="/add-boarding/add-boarding.js"></script>
 </body>
+
 </html>
