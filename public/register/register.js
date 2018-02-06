@@ -1,8 +1,6 @@
-$("#signupbtn").click(function (event) {
-    event.preventDefault();
-
+var signup = function () {
     var data = {
-        fullName: $('#fullname').val(),
+        fullname: $('#fullname').val(),
         address: $('#address').val(),
         contact: $('#contact').val(),
         nic: $('#nic').val(),
@@ -17,14 +15,17 @@ $("#signupbtn").click(function (event) {
         dataType: 'json',
         success: function (response) {
             if (response.success) {
-                window.location.replace('/dashboard');
+                alert('user added');
+                window.location.replace('/view/portal');
+            } else {
+                alert('registration failed');
             }
         },
         error: function () {
-            console.error("login failed");
+            alert('registration failed');
         },
         processData: false,
         type: 'POST',
         url: '/api/signup'
     });
-});
+}
