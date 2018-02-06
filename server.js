@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-connection.connect();
 const apiRouter = require('./app/api.router');
 const viewRouter = require('./app/view.router');
 

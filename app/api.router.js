@@ -8,6 +8,8 @@ const connection = mysql.createConnection({
     database: 'boresy'
 });
 
+connection.connect();
+
 const apiRouter = express.Router();
 
 apiRouter.post('/login', function (req, res) {
