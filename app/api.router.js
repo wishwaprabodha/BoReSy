@@ -39,7 +39,13 @@ apiRouter.post('/signup', function (req, res) {
         'owner',
         'M'
     ], function (error, results, fields) {
-        if (error) throw error;
+        if (error) {
+            console.error(error);
+            res.status(200);
+            res.send({
+                success: false
+            })
+        }
 
         res.status(200);
         res.send({

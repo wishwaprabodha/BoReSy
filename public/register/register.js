@@ -1,6 +1,6 @@
 var signup = function () {
     var data = {
-        fullName: $('#fullname').val(),
+        fullname: $('#fullname').val(),
         address: $('#address').val(),
         contact: $('#contact').val(),
         nic: $('#nic').val(),
