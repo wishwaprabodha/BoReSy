@@ -2,7 +2,7 @@ const express = require('express');
 
 const apiRouter = express.Router();
 
-apiRouter.post('login', function (req, res) {
+apiRouter.post('/login', function (req, res) {
     connection.query('SELECT userid FROM user WHERE email=? AND password=?', [
         req.body['email'],
         req.body['password']
@@ -16,7 +16,7 @@ apiRouter.post('login', function (req, res) {
     });
 })
 
-apiRouter.post('signup', function (req, res) {
+apiRouter.post('/signup', function (req, res) {
     connection.query('INSERT INTO user VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [
         req.body['nic'],
         req.body['fullname'],
