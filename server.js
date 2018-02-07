@@ -12,7 +12,7 @@ const app = express();
 
 //middleware integration
 app.use(session({
-    secret: 'secret',
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: { secure: true }
@@ -30,8 +30,7 @@ dbConfig();
 
 //start server
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || 'http://localhost';
 
 app.listen(PORT, function () {
-    console.log(`server started on ${HOST}:${PORT}`);
+    console.log(`server started on port ${PORT}`);
 })
