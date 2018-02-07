@@ -9,7 +9,7 @@ apiRouter.post('/auth', function (req, res) {
     authService.login(req.body['email'], req.body['password'])
         .then(user => {
             if (user && user.id) {
-                req.session.userId = user.id;
+                req.session['auth'] = {userId: user.id, email: user.email, type: user.type};
                 httpService.sendResponse(res, 200, null, { userId: user.id });
             } else {
                 httpService.sendResponse(res, 200, { message: 'username or password incorrect' }, null);
@@ -20,10 +20,14 @@ apiRouter.post('/auth', function (req, res) {
         });
 });
 
+apiRouter.delete('/auth', function (req, res) {
+    req.session.auth = null;
+});
+
 apiRouter.post('/user', function (req, res) {
     authService.signUp(req.body)
         .then(userId => {
-            req.session.userId = user.id;
+            req.session['auth'] = {userId: userId, email: req.body.email, type: req.body.type};
             httpService.sendResponse(res, 200, null, { userId: userId });
         })
         .catch(err => {
@@ -32,7 +36,7 @@ apiRouter.post('/user', function (req, res) {
 });
 
 apiRouter.post('/boardings', function (req, res) {
-    req.body['ownerId'] = 7; //ToDo: need to get from session
+    req.body['ownerId'] = req.session.auth.userId;
     reservationService.addBoarding(req.body)
         .then(boardingId => {
             httpService.sendResponse(res, 200, null, { boardingId: boardingId });
@@ -53,7 +57,7 @@ apiRouter.get('/boardings', function (req, res) {
 });
 
 apiRouter.post('/reservations', function (req, res) {
-    req.body['seekerId'] = 7; //ToDo: Get from session
+    req.body['seekerId'] = req.session.auth.userId;
     reservationService.makeReservation(req.body)
         .then(reservationId => {
             httpService.sendResponse(res, 200, null, { reservationId: reservationId });
