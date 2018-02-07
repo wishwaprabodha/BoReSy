@@ -14,7 +14,7 @@ var addBoarding = function () {
         success: function (response) {
             if (response.success) {
                 alert('boarding added');
-                window.location.replace('/view/portal');
+                window.location.replace('/portal');
             } else {
                 alert('boarding not added');
             }
@@ -24,6 +24,6 @@ var addBoarding = function () {
         },
         processData: false,
         type: 'POST',
-        url: '/api/add-boarding'
+        url: '/api/boardings'
     });
 }

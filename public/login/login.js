@@ -11,7 +11,7 @@ var login = function () {
         dataType: 'json',
         success: function (response) {
             if (response.success) {
-                window.location.replace('/view/portal');
+                window.location.replace('/portal');
             } else {
                 alert('email or password not match');
             }
@@ -21,6 +21,6 @@ var login = function () {
         },
         processData: false,
         type: 'POST',
-        url: '/api/login'
+        url: '/api/auth'
     });
 }

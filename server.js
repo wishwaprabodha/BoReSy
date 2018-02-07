@@ -1,30 +1,34 @@
 const express = require('express');
-var session = require('express-session');
-var fileStore = require('session-file-store')(session);
-
 const path = require('path');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 const apiRouter = require('./app/api.router');
-const viewRouter = require('./app/view.router');
+const viewRouter = require('./view.router');
+
+const dbConfig = require('./app/config/db.config');
 
 const app = express();
 
+//middleware integration
 app.use(session({
-    name: 'server-session-cookie-id',
-    secret: 'my express secret',
+    secret: 'secret',
+    resave: false,
     saveUninitialized: true,
-    resave: true,
-    store: new fileStore()
+    cookie: { secure: true }
 }));
 
 app.use(bodyParser.json());
-
 app.use(express.static(path.join(__dirname, 'public')));
 
+//routes define
 app.use('/api', apiRouter);
-app.use('/view', viewRouter);
+app.use('/', viewRouter);
 
+//database
+dbConfig();
+
+//start server
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || 'http://localhost';
 

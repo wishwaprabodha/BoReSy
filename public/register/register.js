@@ -1,6 +1,6 @@
 var signup = function () {
     var data = {
-        fullname: $('#fullname').val(),
+        fullName: $('#fullname').val(),
         address: $('#address').val(),
         contact: $('#contact').val(),
         nic: $('#nic').val(),
@@ -18,7 +18,7 @@ var signup = function () {
         success: function (response) {
             if (response.success) {
                 alert('user added');
-                window.location.replace('/view/portal');
+                window.location.replace('/portal');
             } else {
                 alert('registration failed');
             }
@@ -28,6 +28,6 @@ var signup = function () {
         },
         processData: false,
         type: 'POST',
-        url: '/api/signup'
+        url: '/api/users'
     });
 }
