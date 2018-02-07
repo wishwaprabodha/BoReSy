@@ -24,7 +24,7 @@ apiRouter.delete('/auth', function (req, res) {
     req.session.auth = null;
 });
 
-apiRouter.post('/user', function (req, res) {
+apiRouter.post('/users', function (req, res) {
     authService.signUp(req.body)
         .then(userId => {
             req.session['auth'] = {userId: userId, email: req.body.email, type: req.body.type};
