@@ -6,6 +6,7 @@ const FileStore = require('session-file-store')(session);
 
 const apiRouter = require('./app/api.router');
 const viewRouter = require('./view.router');
+const adminRouter = require('./admin/admin.router');
 
 const dbConfig = require('./app/config/db.config');
 
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //routes define
+app.use('/admin', adminRouter);
 app.use('/api', apiRouter);
 app.use('/', viewRouter);
 
