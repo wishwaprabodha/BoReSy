@@ -1,8 +1,28 @@
 const sqlite3 = require('sqlite3').verbose();
+const jwt = require('jsonwebtoken');
 const adminConfig = require('./admin.config');
 const adminHelper = require('./admin.helper');
 
 const db = new sqlite3.Database(adminConfig.database);
+
+const auth = function (password) {
+    const secret = process.env.SECRET || adminConfig.secret;
+    const adminPass = process.env.ADMIN_PASS || adminConfig.adminPass;
+    
+    if (password === adminPass) {
+        const token = jwt.sign({
+            type: 'bearer',
+            issuer: 'juztcode',
+            audience: 'admins'
+        }, secret, {
+            expiresIn: 60 * 60
+        });
+
+        return token;
+    } else {
+        return null;
+    }
+}
 
 const tables = function () {
     return new Promise(resolve => {
@@ -84,12 +104,26 @@ const update = function (tableName, data, conditions) {
 };
 
 const remove = function (tableName, conditions) {
+    const sql_part1 = `DELETE FROM ${tableName}`;
+    const sql_part2 = ' WHERE ';
+    let sql_conditions = '';
+    let sql_final;
+
+    sql_final = sql_part1;
+    if (Object.keys(conditions).length > 0) {
+        sql_conditions = adminHelper.generateMapString(conditions);
+        sql_final += sql_part2 + sql_conditions;
+    }
+
     return new Promise(resolve => {
-        resolve();
+        db.run(sql_final, function (err) {
+            resolve();
+        });
     });
 }
 
 module.exports = {
+    auth: auth,
     tables: tables,
     meta: meta,
     view: view,
