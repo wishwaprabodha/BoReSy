@@ -6,7 +6,6 @@ const FileStore = require('session-file-store')(session);
 
 const apiRouter = require('./app/api.router');
 const viewRouter = require('./view.router');
-const adminRouter = require('./admin/admin.router');
 
 const dbConfig = require('./app/config/db.config');
 
@@ -18,7 +17,7 @@ dbConfig();
 //middleware integration
 app.use(session({
     name: 'server-session-cookie-id',
-    secret: process.env.SECRET,
+    secret: 'secret',
     saveUninitialized: true,
     resave: true,
     store: new FileStore()
@@ -27,7 +26,6 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //routes define
-app.use('/admin', adminRouter);
 app.use('/api', apiRouter);
 app.use('/', viewRouter);
 
